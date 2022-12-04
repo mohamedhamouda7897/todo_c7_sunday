@@ -29,6 +29,8 @@ class MyThemeData {
         subtitle2: TextStyle(
             fontSize: 20, fontWeight: FontWeight.bold, color: colorGreen),
       ),
+      floatingActionButtonTheme:
+          FloatingActionButtonThemeData(backgroundColor: primaryColor),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
           backgroundColor: Colors.white,
           selectedItemColor: primaryColor,
