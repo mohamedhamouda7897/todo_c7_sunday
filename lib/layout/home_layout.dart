@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:todo_c7_sun/layout/add_task_bottom_sheet.dart';
 import 'package:todo_c7_sun/modules/settings/settings.dart';
 import 'package:todo_c7_sun/modules/tasks_list/tasks_list.dart';
 
@@ -22,7 +23,9 @@ class _HomeLayoutState extends State<HomeLayout> {
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
         shape: StadiumBorder(side: BorderSide(color: Colors.white, width: 3)),
-        onPressed: () {},
+        onPressed: () {
+          showAddTaskBottomSheet();
+        },
         child: Icon(Icons.add),
       ),
       bottomNavigationBar: BottomAppBar(
@@ -55,6 +58,17 @@ class _HomeLayoutState extends State<HomeLayout> {
       ),
       body: tabs[currentIndex],
     );
+  }
+
+  void showAddTaskBottomSheet() {
+    showModalBottomSheet(
+        context: context,
+        isScrollControlled: true,
+        builder: (context) => Padding(
+              padding: EdgeInsets.only(
+                  bottom: MediaQuery.of(context).viewInsets.bottom),
+              child: AddTaskBottomSheet(),
+            ));
   }
 
   List<Widget> tabs = [TasksListTab(), SettingsTab()];
